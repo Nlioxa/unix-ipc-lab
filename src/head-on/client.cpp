@@ -49,5 +49,5 @@ int main()
         log << "Open read-pipe(failed)\n";
     }
 
-    return EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }
