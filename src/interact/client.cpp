@@ -9,7 +9,7 @@ int main(int argc, char **argv)
 
     if (argc <= 1)
     {
-        log << "usage: Client [-t]<message_text>\n";
+        log << "usage: Client [-t][-s <service_name>][-m <message_text>]\n";
         return EXIT_SUCCESS;
     }
 
