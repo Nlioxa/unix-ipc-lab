@@ -1,7 +1,7 @@
 #include "../message.hpp"
 #include "../channel.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
     auto channel = ipc::Channel::Server(8000);
 
