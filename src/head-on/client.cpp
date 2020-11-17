@@ -6,7 +6,7 @@
 #define CLIENT_PIPE_PATH "/tmp/fifo.client"
 #define SERVER_PIPE_PATH "/tmp/fifo.server"
 
-int main(int argc, char **argv)
+int main()
 {
     auto &log = std::cout;
     
