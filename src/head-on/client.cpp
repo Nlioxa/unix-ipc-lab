@@ -2,17 +2,16 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
-#include <sys/stat.h>
 
-#define WRIT_PIPE "../fifo1.txt"
-#define READ_PIPE "../fifo2.txt"
+#define CLIENT_PIPE_PATH "/tmp/fifo.client"
+#define SERVER_PIPE_PATH "/tmp/fifo.server"
 
 int main(int argc, char **argv)
 {
     auto &log = std::cout;
     
     log << "Open read-pipe(in-progress)\n";
-    auto server_pipe = open(READ_PIPE, O_RDONLY);
+    auto server_pipe = open(SERVER_PIPE_PATH, O_RDONLY);
     if (server_pipe != -1)
     {
         log << "Open read-pipe(done)\n";
@@ -23,8 +22,8 @@ int main(int argc, char **argv)
                 log << "from server: " << buf << '\n';
             }
         }
-        close(server_pipe);
         log << "Close read-pipe(done)\n";
+        close(server_pipe);
     }
     else
     {
@@ -32,7 +31,7 @@ int main(int argc, char **argv)
     }
 
     log << "Open write-pipe(in-progress)\n";
-    auto client_pipe = open(WRIT_PIPE, O_WRONLY);
+    auto client_pipe = open(CLIENT_PIPE_PATH, O_WRONLY);
     if (client_pipe != -1)
     {
         log << "Open write-pipe(done)\n";
@@ -42,8 +41,8 @@ int main(int argc, char **argv)
                 write(client_pipe, msg, strlen(msg)),
                 log << "(done)\n";
         }
-        close(client_pipe);
         log << "Close write-pipe(done)\n";
+        close(client_pipe);
     }
     else
     {

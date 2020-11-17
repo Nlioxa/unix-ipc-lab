@@ -5,8 +5,8 @@
 #include <sys/stat.h>
 
 #define FILE_MODE (S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)
-#define CLIENT_PIPE_PATH "../fifo1.txt"
-#define SERVER_PIPE_PATH "../fifo2.txt"
+#define CLIENT_PIPE_PATH "/tmp/fifo.client"
+#define SERVER_PIPE_PATH "/tmp/fifo.server"
 
 int main(int argc, char **argv)
 {
