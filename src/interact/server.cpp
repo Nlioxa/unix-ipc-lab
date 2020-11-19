@@ -9,6 +9,8 @@ int main()
 
     auto channel = ipc::Channel::Server(8000);
 
+    log << "listening...\n";
+
     for (auto msg = data::Message(); msg.type() != data::MessageType::Terminate;)
     {
         channel.Read((char *)&msg, sizeof(data::Message));
