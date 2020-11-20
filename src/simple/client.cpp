@@ -8,7 +8,7 @@ int main()
     {
         auto msg = data::Message();
         channel.Read((char *)&msg, sizeof(msg));
-        std::cout << msg << '\n';
+        std::cout << "server: " << msg << '\n';
     }
 
     {

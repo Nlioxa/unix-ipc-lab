@@ -13,7 +13,7 @@ int main()
     {
         auto msg = data::Message();
         channel.Read((char *)&msg, sizeof(msg));
-        std::cout << "broadcast: " << msg << '\n';
+        std::cout << "client: " << msg << '\n';
     }
 
     return EXIT_SUCCESS;
