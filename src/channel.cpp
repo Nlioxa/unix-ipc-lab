@@ -41,7 +41,7 @@ bool ipc::Channel::Read(char *out_stream, unsigned size, bool blocking)
 
     close(read_dsc);
 
-    return result > 0; // test for either EOF or any error
+    return result > 0;
 }
 
 ipc::Channel::Channel(int port, SideType type)
