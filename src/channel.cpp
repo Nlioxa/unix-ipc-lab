@@ -37,11 +37,11 @@ bool ipc::Channel::Read(char *out_stream, unsigned size, bool blocking)
     
     auto read_dsc = open(_pipe_read, mode);
 
-    auto result = read(read_dsc, out_stream, size);
+    auto read_bytes_num = read(read_dsc, out_stream, size);
 
     close(read_dsc);
 
-    return result > 0;
+    return read_bytes_num > 0;
 }
 
 ipc::Channel::Channel(int port, SideType type)
